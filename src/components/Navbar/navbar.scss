@@ -1,0 +1,97 @@
+.nav {
+    width: 100%;
+
+    &__content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px 0;
+
+        &-left {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            &-logo {
+                height: 100%;
+                a {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 100%;
+                    img {
+                        width: 45px;
+                        height: 100%;
+                        display: grid;
+                    }
+                    span {
+                        font-weight: 700;
+                        font-size: 50px;
+                        line-height: 45px;
+                        color: $cFirst;
+                    }
+                }
+            }
+            &-category {
+                button {
+                    font-size: 16px;
+                    padding: 12px 14px;
+                    border-radius: 14px;
+                    background: $cFirst;
+                    color: $cWhite;
+                }
+            }
+            &-input {
+                position: relative;
+                input {
+                    padding: 5px;
+                    font-size: 16px;
+                    height: 49px;
+                    min-width: 780px;
+                    width: 100%;
+                    padding: 12px 85px 12px 20px;
+                    border-radius: 14px;
+                    background: $cWhite;
+                    border: 1px solid $cFirst;
+                }
+                button {
+                    background: $cFirst;
+                    width: 70px;
+                    height: 40px;
+                    border-radius: 14px;
+                    position: absolute;
+                    right: 4.5px;
+                    top: 50%;
+                    transform: translateY(-52%);
+
+                    i {
+                        font-size: 16px;
+                        color: $cWhite;
+                        display: block;
+                    }
+                }
+            }
+        }
+
+        &-right {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            button {
+                background: transparent;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 4px;
+                gap: 5px;
+                i {
+                    color: $cFirst;
+                    font-size: 18px;
+                }
+                span {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}

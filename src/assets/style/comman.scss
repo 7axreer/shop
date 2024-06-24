@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins';
+    font-weight: 500;
+
+}
+
+.container {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+
+}
+
+button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+}
+
+input {
+    border: none;
+    outline: none;
+}
+
+$cBody: #F4F7FD;
+$cFirst: #006BFF;
+$cSecond: #00BFAF;
+$cBlack: #000000;
+$cWhite: #FFFFFF;
+
+body {
+    background: $cBody;
+
+}
+
