@@ -7,13 +7,13 @@
                 <div class="nav__content-left">
                     <div class="nav__content-left-logo">
                         <a href="">
-                            <img src="@/assets/img/logo.svg" alt="">
+                            <img src="@/assets/img/logo.svg" alt="" />
                             <span>SHOP</span>
                         </a>
                     </div>
 
                     <div class="nav__content-left-category">
-                        <button>
+                        <button @click="$emit('toggleCategory')">  
                             <i class="far fa-bars"></i>
                             Katalog
                         </button>
@@ -44,5 +44,4 @@
             </div>
         </div>
     </nav>
-
 </template>

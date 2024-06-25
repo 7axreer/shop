@@ -1,0 +1,12 @@
+.banner {
+    padding-top: 79px;
+    margin-top: 15px;
+    &__content {
+        border-radius: 14px;
+        border: 1px solid $cFirst;
+        img {
+            width: 100%;
+            border-radius: 14px;
+        }
+    }
+}
