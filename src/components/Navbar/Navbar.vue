@@ -6,10 +6,10 @@
             <div class="nav__content">
                 <div class="nav__content-left">
                     <div class="nav__content-left-logo">
-                        <a href="">
+                        <router-link to="/">
                             <img src="@/assets/img/logo.svg" alt="" />
                             <span>SHOP</span>
-                        </a>
+                        </router-link>
                     </div>
 
                     <div class="nav__content-left-category">
@@ -28,15 +28,15 @@
                 </div>
 
                 <div class="nav__content-right">
-                    <button class="nav__content-right-cart">
+                    <router-link to="/basket" class="nav__content-right-cart nav__content-right-buttons">
                         <i class="far fa-shopping-cart"></i>
                         <span>Savat</span>
-                    </button>
-                    <button class="nav__content-right-fav">
+                    </router-link>
+                    <router-link to="/favorite" class="nav__content-right-fav nav__content-right-buttons">
                         <i class="far fa-heart"></i>
                         <span>Saralangan</span>
-                    </button>
-                    <button class="nav__content-right-log">
+                    </router-link>
+                    <button class="nav__content-right-log nav__content-right-buttons">
                         <i class="far fa-user"></i>
                         <span>Kirish</span>
                     </button>

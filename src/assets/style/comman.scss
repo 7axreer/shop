@@ -52,16 +52,7 @@ img {
 }
 
 html::-webkit-scrollbar {
-    color: $cBody;
-    background: #006aff6d;
-    width: 5px;
-}
-html::-webkit-scrollbar-thumb {
-    color: $cBody;
-    background: #006BFF;
-    border-radius: 100px;
-    height: 10px;
-    border-radius: 30px;
+    display: none;
 }
 
 
