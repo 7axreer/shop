@@ -1,16 +1,16 @@
 .product {
     &__content {
-        display: flex;
-        justify-content: center;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
         gap: 30px;
+
         &-card {
-            width: 215px;
             background: $cWhite;
             padding: 10px 10px 10px 10px;
             border-radius: 14px;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 10px;
             border: 1px solid transparent;
             overflow: hidden;
             &:hover {
@@ -19,6 +19,8 @@
             &-img {
                 width: 190px;
                 height: 200px;
+                display: grid;
+                place-self: center;
                 position: relative;
                 margin-top: 15px;
                 span {
@@ -28,8 +30,8 @@
                     font-size: 14px;
                     padding: 5px 10px 5px 15px;
                     border-radius: 0px 0px 14px 0;
-                    left: -15px;
-                    top: -25px;
+                    left: -37px;
+                    top: -27px;
                 }
                 .sold {
                     background: #F7630C; 
@@ -51,9 +53,18 @@
                     justify-content: space-between;
                     div {
                         &:nth-child(1) {
+                            display: flex;
+                            align-items: center;
+                            gap: 5px;
                             i {
+                                margin-top: -4px;
+                                color: #F7630C;
                                 font-size: 14px;
-                                color: #fe7300;
+                            }
+                            span {
+                                
+                                font-size: 14px;
+                                opacity: 80%;
                             }
                         }
                         &:nth-child(2) {
@@ -65,10 +76,18 @@
                         }
                     }
                 }
+                & .discount-span {
+                    font-size: 12px;
+                    color: #7e7e7e;
+                    text-decoration: line-through;
+                    margin-bottom: -10px;
+                }
             }
             &-buttons {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
+                align-items: end;
+                height: 100%;
                 gap: 10px;
                 button {
                     padding: 10px 20px;

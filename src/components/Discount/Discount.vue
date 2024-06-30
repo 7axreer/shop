@@ -1,201 +1,36 @@
-<script setup></script>
+<script setup>
+    import { useDiscShopStore } from "@/store/shopStore";
+    import { ref } from "vue";
+
+    const store = useDiscShopStore();
+    store.getDiscProducts();
+</script>
 
 <template>
     <section class="product">
         <div class="container">
             <h1 class="section__title">Chegirmali mahsulotlar</h1>
             <div class="product__content">
-                <div class="product__content-card">
+                <div v-for="(item, index) in store.discShop" :key="index" class="product__content-card">
                     <div class="product__content-card-img">
                         <span class="discount-span">Chegirma</span>
-                        <img src="@/assets/img/iPhone.webp" alt="" />
+                        <img :src="item.thumbnail" alt="" />
                     </div>
 
                     <div class="product__content-card-text">
-                        <p>
-                            Smartfon iPhone 15 Pro Max 1TB gray metalic
-                        </p>
+                        <p>{{ item.title }}</p>
                         <div class="product__content-card-text-box">
                             <div>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                                 <i class="fas fa-star"></i>
+                                <span> {{ item.rating }} </span>
                             </div>
                             <div>
                                 <i class="fal fa-comment-alt-lines"></i>
-                                0 ta sharh
+                                {{ item.weight }}
                             </div>
                         </div>
-                         <p>
-                            15 000 000 so'm
-                        </p>
-                    </div>
-
-                    <div class="product__content-card-buttons">
-                        <button><i class="fal fa-cart-plus"></i></button>
-                        <button><i class="far fa-heart"></i></button>
-                    </div>
-                </div>
-                <div class="product__content-card">
-                    <div class="product__content-card-img">
-                        <span class="discount-span">Chegirma</span>
-                        <img src="@/assets/img/iPhone.webp" alt="" />
-                    </div>
-
-                    <div class="product__content-card-text">
-                        <p>
-                            Smartfon iPhone 15 Pro Max 1TB gray metalic
-                        </p>
-                        <div class="product__content-card-text-box">
-                            <div>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div>
-                                <i class="fal fa-comment-alt-lines"></i>
-                                0 ta sharh
-                            </div>
-                        </div>
-                         <p>
-                            15 000 000 so'm
-                        </p>
-                    </div>
-
-                    <div class="product__content-card-buttons">
-                        <button><i class="fal fa-cart-plus"></i></button>
-                        <button><i class="far fa-heart"></i></button>
-                    </div>
-                </div>
-                <div class="product__content-card">
-                    <div class="product__content-card-img">
-                        <span class="discount-span">Chegirma</span>
-                        <img src="@/assets/img/iPhone.webp" alt="" />
-                    </div>
-
-                    <div class="product__content-card-text">
-                        <p>
-                            Smartfon iPhone 15 Pro Max 1TB gray metalic
-                        </p>
-                        <div class="product__content-card-text-box">
-                            <div>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div>
-                                <i class="fal fa-comment-alt-lines"></i>
-                                0 ta sharh
-                            </div>
-                        </div>
-                         <p>
-                            15 000 000 so'm
-                        </p>
-                    </div>
-
-                    <div class="product__content-card-buttons">
-                        <button><i class="fal fa-cart-plus"></i></button>
-                        <button><i class="far fa-heart"></i></button>
-                    </div>
-                </div>
-                <div class="product__content-card">
-                    <div class="product__content-card-img">
-                        <span class="discount-span">Chegirma</span>
-                        <img src="@/assets/img/iPhone.webp" alt="" />
-                    </div>
-
-                    <div class="product__content-card-text">
-                        <p>
-                            Smartfon iPhone 15 Pro Max 1TB gray metalic
-                        </p>
-                        <div class="product__content-card-text-box">
-                            <div>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div>
-                                <i class="fal fa-comment-alt-lines"></i>
-                                0 ta sharh
-                            </div>
-                        </div>
-                         <p>
-                            15 000 000 so'm
-                        </p>
-                    </div>
-
-                    <div class="product__content-card-buttons">
-                        <button><i class="fal fa-cart-plus"></i></button>
-                        <button><i class="far fa-heart"></i></button>
-                    </div>
-                </div>
-                <div class="product__content-card">
-                    <div class="product__content-card-img">
-                        <span class="discount-span">Chegirma</span>
-                        <img src="@/assets/img/iPhone.webp" alt="" />
-                    </div>
-
-                    <div class="product__content-card-text">
-                        <p>
-                            Smartfon iPhone 15 Pro Max 1TB gray metalic
-                        </p>
-                        <div class="product__content-card-text-box">
-                            <div>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div>
-                                <i class="fal fa-comment-alt-lines"></i>
-                                0 ta sharh
-                            </div>
-                        </div>
-                         <p>
-                            15 000 000 so'm
-                        </p>
-                    </div>
-
-                    <div class="product__content-card-buttons">
-                        <button><i class="fal fa-cart-plus"></i></button>
-                        <button><i class="far fa-heart"></i></button>
-                    </div>
-                </div>
-                <div class="product__content-card">
-                    <div class="product__content-card-img">
-                        <span class="discount-span">Chegirma</span>
-                        <img src="@/assets/img/iPhone.webp" alt="" />
-                    </div>
-
-                    <div class="product__content-card-text">
-                        <p>
-                            Smartfon iPhone 15 Pro Max 1TB gray metalic
-                        </p>
-                        <div class="product__content-card-text-box">
-                            <div>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div>
-                                <i class="fal fa-comment-alt-lines"></i>
-                                0 ta sharh
-                            </div>
-                        </div>
-                         <p>
-                            15 000 000 so'm
-                        </p>
+                        <span class="discount-span">$ {{ item.price }}</span>
+                        <p>$ {{ item.discountPercentage }}</p>
                     </div>
 
                     <div class="product__content-card-buttons">
