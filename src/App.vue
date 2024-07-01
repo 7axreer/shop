@@ -2,7 +2,6 @@
     import { ref } from "vue";
     import Navbar from "@/components/Navbar/Navbar.vue";
     import Category from "@/components/Category/Category.vue";
-  
 
     const openCategory = ref(false);
 
@@ -18,6 +17,5 @@
 <template>
     <Navbar @toggleCategory="toggleCategory" />
     <Category :active="openCategory" @close="closeCategory" />
-    <router-view />
-   
+    <RouterView/>
 </template>

@@ -5,14 +5,6 @@
     const store = useShopStore();
     store.getProducts();
 
-    // const product = ref(null);
-    // const getProducts = async () => {
-    //     const res = await fetch("https://dummyjson.com/products");
-
-    //     // const data = await res.json();
-
-    //     console.log(res);
-    // };
 </script>
 
 <template>
@@ -20,7 +12,7 @@
         <div class="container">
             <h1 class="section__title">Ko'p sotilgan mahsulotlar</h1>
             <div class="product__content">
-                <div v-for="(item, index) in store.shop" :key="index" class="product__content-card">
+                <router-link :to="'/single/' + item.id" v-for="item in store.shop" :key="item.id" class="product__content-card">
                     <div class="product__content-card-img">
                         <span class="sold">Top</span>
                         <img :src="item.thumbnail" alt="" />
@@ -30,7 +22,7 @@
                         <p>{{ item.title }}</p>
                         <div class="product__content-card-text-box">
                             <div>
-                               <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
                                 <span> {{ item.rating }} </span>
                             </div>
                             <div>
@@ -45,7 +37,7 @@
                         <button><i class="fal fa-cart-plus"></i></button>
                         <button><i class="far fa-heart"></i></button>
                     </div>
-                </div>
+                </router-link>
             </div>
         </div>
     </section>

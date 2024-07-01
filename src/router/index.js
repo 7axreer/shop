@@ -19,6 +19,16 @@ const router = createRouter({
       name: 'favorite',
       component: () => import('../views/favorite.vue')
     },
+    {
+      path: '/category/:category',
+      name: 'category',
+      component: () => import('../views/SingleCategory.vue')
+    },
+    {
+      path: '/single/:id',
+      name: 'single',
+      component: () => import('../views/singlepro.vue')
+    },
   ]
 })
 

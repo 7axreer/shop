@@ -1,10 +1,10 @@
-.product {
+.singCategory {
+    margin-top: 100px;
     &__content {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         gap: 30px;
-
-        &-card {
+        &-cart {
             background: $cWhite;
             padding: 10px 10px 10px 10px;
             border-radius: 14px;
@@ -34,10 +34,10 @@
                     top: -27px;
                 }
                 .sold {
-                    background: #F7630C; 
+                    background: #f7630c;
                 }
                 .discount-span {
-                    background: #ff2200; 
+                    background: #ff2200;
                 }
             }
             &-text {
@@ -59,7 +59,7 @@
                             gap: 5px;
                             i {
                                 margin-top: -4px;
-                                color: #F7630C;
+                                color: #f7630c;
                                 font-size: 14px;
                             }
                             span {

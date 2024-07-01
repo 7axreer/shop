@@ -27,6 +27,11 @@
             height: 10px;
         }
         li {
+            display: flex;
+            flex-direction: column;
+        }
+        &-link {
+            color: $cBlack;
             cursor: pointer;
             padding: 5px 0 5px 10px;
             &:hover {
@@ -35,6 +40,7 @@
             }
         }
     }
+
     .overlay {
         background: #1111117a;
         position: fixed;
@@ -44,7 +50,6 @@
         right: 0;
         z-index: 9;
         display: none;
-
     }
 
     .active {

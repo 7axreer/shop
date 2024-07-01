@@ -4,9 +4,8 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-weight: 500;
-
 }
 
 .container {
@@ -14,14 +13,12 @@
     width: 100%;
     margin: 0 auto;
     padding: 0 15px;
-
 }
 
 button {
     border: none;
     outline: none;
     cursor: pointer;
-
 }
 
 input {
@@ -29,15 +26,14 @@ input {
     outline: none;
 }
 
-$cBody: #F4F7FD;
-$cFirst: #006BFF;
-$cSecond: #00BFAF;
+$cBody: #f4f7fd;
+$cFirst: #006bff;
+$cSecond: #00bfaf;
 $cBlack: #000000;
-$cWhite: #FFFFFF;
+$cWhite: #ffffff;
 
 body {
     background: $cBody;
-
 }
 
 img {
@@ -54,6 +50,3 @@ img {
 html::-webkit-scrollbar {
     display: none;
 }
-
-
-

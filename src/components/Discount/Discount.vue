@@ -11,7 +11,7 @@
         <div class="container">
             <h1 class="section__title">Chegirmali mahsulotlar</h1>
             <div class="product__content">
-                <div v-for="(item, index) in store.discShop" :key="index" class="product__content-card">
+                <router-link :to="'/single/' + item.id" v-for="item in store.discShop" :key="item.id" class="product__content-card">
                     <div class="product__content-card-img">
                         <span class="discount-span">Chegirma</span>
                         <img :src="item.thumbnail" alt="" />
@@ -37,7 +37,7 @@
                         <button><i class="fal fa-cart-plus"></i></button>
                         <button><i class="far fa-heart"></i></button>
                     </div>
-                </div>
+                </router-link>
             </div>
         </div>
     </section>

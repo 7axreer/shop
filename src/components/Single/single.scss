@@ -1,0 +1,108 @@
+.single {
+    margin-top: 100px;
+    &__content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        &-left {
+            background: $cWhite;
+            border-radius: 22px;
+            padding: 24px;
+            display: grid;
+            place-content: center;
+            
+        }
+        &-right {
+            background: $cWhite;
+            border-radius: 22px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            &-top {
+                i {
+                    margin-right: 5px;
+                    color: #f7630c;
+                }
+                margin-bottom: 20px;
+            }
+            &-info {
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+                margin-bottom: 30px;
+                h2 {
+                    font-size: 32px;
+                    color: $cBlack;
+                }
+                div {
+                    width: 550px;
+                    p {
+                        font-weight: 600;
+                        font-size: 18px;
+                        color: $cBlack;
+                    }
+                    span {
+                        font-weight: 400;
+                        font-size: 15px;
+                        color: $cBlack;
+                    }
+                }
+            }
+            &-count {
+                display: flex;
+                align-items: center;
+                gap: 30px;
+                margin-bottom: 30px;
+                div {
+                    padding: 3px 5px;
+                    height: px;
+                    width: 150px;
+                    background: #f8f8f9;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    border-radius: 7px;
+
+                    p {
+                        font-weight: 600;
+                    }
+                    button {
+                        padding: 5px 8px;
+                        background: transparent;
+                        i {
+                            color: #616161;
+
+                            &:hover {
+                                color: $cBlack;
+                            }
+                        }
+                    }
+                }
+                p {
+                    color: #1e8f1e;
+                }
+            }
+            &-price {
+                display: flex;
+                gap: 50px;
+            }
+            &-buttons {
+                display: grid;
+                align-items: end;
+                height: 100%;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                button {
+                    padding: 20px 0;
+                    font-size: 18px;
+                    border-radius: 12px;
+                    &:nth-child(1) {
+                        background: $cFirst;
+                        color: $cWhite;
+                    }
+                }
+            }
+        }
+    }
+}
