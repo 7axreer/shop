@@ -1,0 +1,32 @@
+.mainBtn {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: end;
+    height: 100%;
+    gap: 10px;
+    button {
+        padding: 10px 20px;
+        border-radius: 8px;
+        i {
+            font-size: 18px;
+            display: grid;
+            place-content: center;
+        }
+        &:nth-child(1) {
+            background: $cFirst;
+            i {
+                color: $cWhite;
+            }
+            &:hover {
+                background: #005bff;
+            }
+        }
+        &:nth-child(2) {
+            background: #e6e6e6;
+            color: #00000097;
+            &:hover {
+                background: #e1e1e1;
+            }
+        }
+    }
+}

@@ -34,6 +34,7 @@
             color: $cBlack;
             cursor: pointer;
             padding: 5px 0 5px 10px;
+            text-transform: capitalize;
             &:hover {
                 background: rgba(55, 138, 255, 0.156);
                 border-radius: 8px;

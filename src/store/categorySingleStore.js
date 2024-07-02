@@ -9,7 +9,6 @@ export const useCategorySingleStore = defineStore("categorieSingle", {
         async getSingleCategories(name) {
             try {
                 const res = await apiShop.getSingleCategories(name);
-                console.log(res.products, "asdasd");
 
                 this.categorieSingle = res.products;
             } catch (error) {

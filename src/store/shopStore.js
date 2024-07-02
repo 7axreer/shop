@@ -9,7 +9,6 @@ export const useShopStore = defineStore("shop", {
         async getProducts() {
             try {
                 const res = await apiShop.getProducts();
-                console.log(res);
                 this.shop = res.products;
             } catch (error) {
                 console.error("Error fetching products:", error);
@@ -18,7 +17,6 @@ export const useShopStore = defineStore("shop", {
         async getNewProducts() {
             try {
                 const res = await apiShop.getNewProducts();
-                console.log(res);
                 this.shop = res.products;
             } catch (error) {
                 console.error("Error fetching products:", error);
@@ -35,7 +33,6 @@ export const useNewShopStore = defineStore("newShop", {
         async getNewProducts() {
             try {
                 const res = await apiShop.getNewProducts();
-                console.log(res);
                 this.newShop = res.products;
             } catch (error) {
                 console.error("Error fetching products:", error);
@@ -44,7 +41,6 @@ export const useNewShopStore = defineStore("newShop", {
         async getNewProducts() {
             try {
                 const res = await apiShop.getNewProducts();
-                console.log(res);
                 this.newShop = res.products;
             } catch (error) {
                 console.error("Error fetching products:", error);
@@ -61,7 +57,6 @@ export const useDiscShopStore = defineStore("discShop", {
         async getDiscProducts() {
             try {
                 const res = await apiShop.getDiscProducts();
-                console.log(res);
                 this.discShop = res.products;
             } catch (error) {
                 console.error("Error fetching products:", error);
@@ -70,7 +65,6 @@ export const useDiscShopStore = defineStore("discShop", {
         async getDiscProducts() {
             try {
                 const res = await apiShop.getDiscProducts();
-                console.log(res);
                 this.discShop = res.products;
             } catch (error) {
                 console.error("Error fetching products:", error);

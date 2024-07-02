@@ -1,10 +1,36 @@
 <script setup>
+    import { onMounted } from "vue";
     import { useSingleProduct } from "@/store/singleProductStore";
     import { useRoute } from "vue-router";
+    import { useShopStore } from "@/store/shopStore";
+    import { useFavoriteStore } from "@/store/favoriteStore";
+
     const route = useRoute();
-    console.log(route);
     const itemSingleStore = useSingleProduct();
-    itemSingleStore.getSingleProduct(route.params.id);
+    const store = useShopStore();
+    const favStore = useFavoriteStore();
+
+    const checkFavourite = () => {
+        store.shop.forEach((product) => {
+            product.isFav = favStore.checkId(product.id);
+        });
+    };
+
+    const addFav = (product) => {
+        if (product && product.id) {
+            if (product.isFav) {
+                favStore.removeFavProduct(product.id);
+            } else {
+                favStore.addFavProduct(product.id);
+            }
+        }
+    };
+
+    onMounted(async () => {
+        await store.getProducts();
+        itemSingleStore.getSingleProduct(route.params.id);
+        checkFavourite();
+    });
 </script>
 
 <template>
@@ -12,12 +38,12 @@
         <div class="container sing__gap">
             <div class="single__content">
                 <div class="single__content-left">
-                   <img :src="itemSingleStore.single?.thumbnail" alt="" />
+                    <img :src="itemSingleStore.single?.thumbnail" alt="" />
                 </div>
                 <div class="single__content-right">
                     <div class="single__content-right-top">
                         <i class="fas fa-star"></i>
-                        <span> {{ itemSingleStore.single?.rating }} </span>
+                        <span>{{ itemSingleStore.single?.rating }}</span>
                     </div>
 
                     <div class="single__content-right-info">
@@ -56,10 +82,18 @@
 
                     <div class="single__content-right-buttons">
                         <button><i class="fal fa-cart-plus"></i></button>
-                        <button><i class="far fa-heart"></i></button>
+                        <button @click="addFav(itemSingleStore.single)">
+                            <i :class="{ isActive: itemSingleStore.single && itemSingleStore.single.isFav }" class="fas fa-heart"></i>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 </template>
+
+<style scoped>
+    .isActive {
+        color: #ff2200;
+    }
+</style>

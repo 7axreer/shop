@@ -1,122 +1,122 @@
-.product {
-    &__content {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        gap: 30px;
+// .product {
+//     &__content {
+//         display: grid;
+//         grid-template-columns: repeat(5, 1fr);
+//         gap: 30px;
 
-        &-card {
-            background: $cWhite;
-            padding: 10px 10px 10px 10px;
-            border-radius: 14px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            border: 1px solid transparent;
-            overflow: hidden;
-            &:hover {
-                border: 1px solid #c7c7c7;
-            }
-            &-img {
-                width: 190px;
-                height: 200px;
-                display: grid;
-                place-self: center;
-                position: relative;
-                margin-top: 15px;
-                span {
-                    position: absolute;
-                    background: #00d20d;
-                    color: $cWhite;
-                    font-size: 14px;
-                    padding: 5px 10px 5px 15px;
-                    border-radius: 0px 0px 14px 0;
-                    left: -37px;
-                    top: -27px;
-                }
-                .sold {
-                    background: #F7630C; 
-                }
-                .discount-span {
-                    background: #ff2200; 
-                }
-            }
-            &-text {
-                display: flex;
-                flex-direction: column;
-                gap: 5px;
-                p {
-                    font-size: 16px;
-                    color: $cBlack;
-                }
-                &-box {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    div {
-                        &:nth-child(1) {
-                            display: flex;
-                            align-items: center;
-                            gap: 5px;
-                            i {
-                                margin-top: -4px;
-                                color: #F7630C;
-                                font-size: 14px;
-                            }
-                            span {
-                                color: $cBlack;
-                                font-size: 14px;
-                                opacity: 80%;
-                            }
-                        }
-                        &:nth-child(2) {
-                            display: flex;
-                            align-items: center;
-                            gap: 5px;
-                            font-size: 12px;
-                            opacity: 80%;
-                            color: $cBlack;
-                        }
-                    }
-                }
-                & .discount-span {
-                    font-size: 12px;
-                    color: #7e7e7e;
-                    text-decoration: line-through;
-                    margin-bottom: -10px;
-                }
-            }
-            &-buttons {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                align-items: end;
-                height: 100%;
-                gap: 10px;
-                button {
-                    padding: 10px 20px;
-                    border-radius: 8px;
-                    i {
-                        font-size: 18px;
-                        display: grid;
-                        place-content: center;
-                    }
-                    &:nth-child(1) {
-                        background: $cFirst;
-                        i {
-                            color: $cWhite;
-                        }
-                        &:hover {
-                            background: #005bff;
-                        }
-                    }
-                    &:nth-child(2) {
-                        background: #e6e6e6;
-                        color: #00000097;
-                        &:hover {
-                            background: #e1e1e1;
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
+//         &-card {
+//             background: $cWhite;
+//             padding: 10px 10px 10px 10px;
+//             border-radius: 14px;
+//             display: flex;
+//             flex-direction: column;
+//             gap: 10px;
+//             border: 1px solid transparent;
+//             overflow: hidden;
+//             &:hover {
+//                 border: 1px solid #c7c7c7;
+//             }
+//             &-img {
+//                 width: 190px;
+//                 height: 200px;
+//                 display: grid;
+//                 place-self: center;
+//                 position: relative;
+//                 margin-top: 15px;
+//                 span {
+//                     position: absolute;
+//                     background: #00d20d;
+//                     color: $cWhite;
+//                     font-size: 14px;
+//                     padding: 5px 10px 5px 15px;
+//                     border-radius: 0px 0px 14px 0;
+//                     left: -37px;
+//                     top: -27px;
+//                 }
+//                 .sold {
+//                     background: #F7630C; 
+//                 }
+//                 .discount-span {
+//                     background: #ff2200; 
+//                 }
+//             }
+//             &-text {
+//                 display: flex;
+//                 flex-direction: column;
+//                 gap: 5px;
+//                 p {
+//                     font-size: 16px;
+//                     color: $cBlack;
+//                 }
+//                 &-box {
+//                     display: flex;
+//                     align-items: center;
+//                     justify-content: space-between;
+//                     div {
+//                         &:nth-child(1) {
+//                             display: flex;
+//                             align-items: center;
+//                             gap: 5px;
+//                             i {
+//                                 margin-top: -4px;
+//                                 color: #F7630C;
+//                                 font-size: 14px;
+//                             }
+//                             span {
+//                                 color: $cBlack;
+//                                 font-size: 14px;
+//                                 opacity: 80%;
+//                             }
+//                         }
+//                         &:nth-child(2) {
+//                             display: flex;
+//                             align-items: center;
+//                             gap: 5px;
+//                             font-size: 12px;
+//                             opacity: 80%;
+//                             color: $cBlack;
+//                         }
+//                     }
+//                 }
+//                 & .discount-span {
+//                     font-size: 12px;
+//                     color: #7e7e7e;
+//                     text-decoration: line-through;
+//                     margin-bottom: -10px;
+//                 }
+//             }
+//             &-buttons {
+//                 display: grid;
+//                 grid-template-columns: repeat(2, 1fr);
+//                 align-items: end;
+//                 height: 100%;
+//                 gap: 10px;
+//                 button {
+//                     padding: 10px 20px;
+//                     border-radius: 8px;
+//                     i {
+//                         font-size: 18px;
+//                         display: grid;
+//                         place-content: center;
+//                     }
+//                     &:nth-child(1) {
+//                         background: $cFirst;
+//                         i {
+//                             color: $cWhite;
+//                         }
+//                         &:hover {
+//                             background: #005bff;
+//                         }
+//                     }
+//                     &:nth-child(2) {
+//                         background: #e6e6e6;
+//                         color: #00000097;
+//                         &:hover {
+//                             background: #e1e1e1;
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }

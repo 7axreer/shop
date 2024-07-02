@@ -1,7 +1,51 @@
-<script setup></script>
+<script setup>
+    import { useShopStore } from "@/store/shopStore";
+    import { useBasketStore } from "@/store/basketStore";
+    import { useFavoriteStore } from "@/store/favoriteStore";
+    import { ref, computed, onMounted } from "vue";
+
+    const store = useShopStore();
+    const basketStore = useBasketStore();
+    const favStore = useFavoriteStore();
+
+    const removeProduct = (id) => {
+        basketStore.removeFromBasket(id);
+    };
+
+    const addFav = (product) => {
+        if (product.isFav) {
+            favStore.removeFavProduct(product.id);
+        } else {
+            favStore.getAddFavProduct(product.id);
+        }
+        product.isFav = !product.isFav; // Toggle the favorite status locally
+    };
+
+    const checkFavorites = () => {
+        store.shop.forEach((product) => {
+            product.isFav = favStore.isFavorite(product.id);
+        });
+    };
+
+    onMounted(async () => {
+        await store.getProducts();
+        checkFavorites();
+    });
+
+    const basketCount = computed(() => basketStore.basketCount);
+    const totalSum = computed(() => basketStore.totalSum);
+
+    const incrementQuantity = (id) => {
+        basketStore.incrementQuantity(id);
+    };
+
+    const decrementQuantity = (id) => {
+        basketStore.decrementQuantity(id);
+    };
+</script>
 
 <template>
-    <section v-if="false" class="empty">
+    <section v-if="basketStore.basket.length === 0" class="empty">
         <div class="container">
             <div class="empty__content">
                 <img src="@/assets/img/empty.webp" alt="" />
@@ -20,49 +64,29 @@
                 <div class="basket__content-left">
                     <h2>Savat</h2>
                     <div class="basket__content-left-products">
-                        <div class="basket__content-left-products-card">
+                        <div v-for="item in basketStore.basket" :key="item.id" class="basket__content-left-products-card">
                             <div class="basket__content-left-products-card-left">
-                                <img src="@/assets/img/iPhone.webp" alt="" />
+                                <img :src="item.thumbnail" alt="" />
                                 <div>
-                                    <p>Smartfon iPhone 15 Pro Max 1TB gray metalic</p>
+                                    <p>{{ item.title }}</p>
                                     <div>
-                                        <button><i class="fal fa-trash-alt"></i></button>
-                                        <button><i class="fal fa-heart"></i></button>
+                                        <button @click="removeProduct(item.id)">
+                                            <i class="fal fa-trash-alt"> </i>
+                                        </button>
+                                        <button @click="addFav(item)">
+                                            <i :class="{ isActive: item.isFav }" class="fas fa-heart"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                             <div class="basket__content-left-products-card-right">
-                                <p>15 000 000 so'm</p>
+                                <p>${{ item.price.toLocaleString() }}</p>
                                 <div>
-                                    <button>
+                                    <button @click="decrementQuantity(item.id)">
                                         <i class="far fa-minus"></i>
                                     </button>
-                                    <span>0</span>
-                                    <button>
-                                        <i class="far fa-plus"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="basket__content-left-products-card">
-                            <div class="basket__content-left-products-card-left">
-                                <img src="@/assets/img/iPhone.webp" alt="" />
-                                <div>
-                                    <p>Smartfon iPhone 15 Pro Max 1TB gray metalic</p>
-                                    <div>
-                                        <button><i class="fal fa-trash-alt"></i></button>
-                                        <button><i class="fal fa-heart"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="basket__content-left-products-card-right">
-                                <p>15 000 000 so'm</p>
-                                <div>
-                                    <button>
-                                        <i class="far fa-minus"></i>
-                                    </button>
-                                    <span>0</span>
-                                    <button>
+                                    <span>{{ item.quantity }}</span>
+                                    <button @click="incrementQuantity(item.id)">
                                         <i class="far fa-plus"></i>
                                     </button>
                                 </div>
@@ -76,11 +100,11 @@
                         <h2>Sizning buyurtmangiz</h2>
                         <div>
                             <p>Mahsulot soni</p>
-                            <p>0 ta</p>
+                            <p>{{ basketCount }} ta</p>
                         </div>
                         <div>
                             <p>Jami summa</p>
-                            <p>0 so'm</p>
+                            <p>${{ totalSum.toLocaleString() }}</p>
                         </div>
                     </div>
                     <div class="basket__content-right-middle">
