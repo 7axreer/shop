@@ -3,7 +3,7 @@ import apiShop from "@/helpers/api/api";
 
 export const useCategorySingleStore = defineStore("categorieSingle", {
     state: () => ({
-        categorieSingle: null,
+        categorieSingle: [],
     }),
     actions: {
         async getSingleCategories(name) {

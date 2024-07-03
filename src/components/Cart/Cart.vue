@@ -1,17 +1,21 @@
 <script setup>
-    import { ref, onMounted } from "vue";
+    import { ref, onMounted, computed } from "vue";
     import { useShopStore } from "@/store/shopStore";
     import { useFavoriteStore } from "@/store/favoriteStore";
-    import { useBasketStore } from "@/store/basketStore"; 
+    import { useBasketStore } from "@/store/basketStore";
 
     const store = useShopStore();
     const favStore = useFavoriteStore();
-    const basketStore = useBasketStore(); 
+    const basketStore = useBasketStore();
 
     const checkFavorites = () => {
         store.shop.forEach((product) => {
             product.isFav = favStore.isFavorite(product.id);
         });
+    };
+
+    const checkBasket = (id) => {
+        return basketStore.basket.some((item) => item.id === id);
     };
 
     onMounted(async () => {
@@ -20,17 +24,16 @@
     });
 
     const addFav = (product) => {
-        if (product.isFav) {
-            favStore.removeFavProduct(product.id);
-        } else {
-            favStore.getAddFavProduct(product.id);
-        }
+        favStore.addFav(product);
     };
 
     const addToBasket = (product) => {
-        basketStore.addToBasket(product.id);
-        console.log(basketStore);
+        if (!checkBasket(product.id)) {
+            basketStore.addToBasket(product.id, "shop");
+        }
     };
+
+    const basketCount = computed(() => basketStore.basket.length);
 </script>
 
 <template>
@@ -59,7 +62,9 @@
                     </div>
 
                     <div class="cart__content-card-buttons">
-                        <button @click="addToBasket(item)"><i class="fal fa-cart-plus"></i></button>
+                        <button @click="addToBasket(item)">
+                            <i :class="checkBasket(item.id) ? 'far fa-check' : 'fal fa-cart-plus'"></i>
+                        </button>
                         <button @click="addFav(item)">
                             <i :class="{ isActive: item.isFav }" class="fas fa-heart"></i>
                         </button>
@@ -71,5 +76,7 @@
 </template>
 
 <style scoped>
- 
+    .isActive {
+        color: #ff2200;
+    }
 </style>

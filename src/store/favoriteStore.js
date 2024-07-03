@@ -27,6 +27,17 @@ export const useFavoriteStore = defineStore("favoriteStore", {
                 product.isFav = false;
             }
         },
+        addFav(product) {
+            if (!this.isFavorite(product.id)) {
+                product.isFav = true;
+                this.favourite.push(product);
+            }
+        },
+        initializeFavorites(shopProducts) {
+            shopProducts.forEach(product => {
+                product.isFav = this.isFavorite(product.id);
+            });
+        }
     },
     persist: true,
 });
